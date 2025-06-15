@@ -1,31 +1,11 @@
 # project polyglot (langauge tutor)
 
+Polyglot is a full-stack MVP for an AI-powered, conversation-based language tutor. Built with React, FastAPI, and GPT-4o, it helps users practice speaking in a target language, tailored to their CEFR level. Mistakes are tracked silently to generate personalized review sessions — no explicit corrections, mimicking natural acquisition (ALG method).
+
 ## Contents:
 
+[Development](#Development)
 [TODO](#TODO)
-
-## TODO:
-
-### Database Integration:
-- Replace JSON file storage with SQLite or PostgreSQL
-- Add proper database migrations
-
-### Enhanced Features:
-- Implement the Whisper speech-to-text placeholder
-- Add spaced repetition algorithm for review sessions
-- Create more sophisticated mistake detection
-
-### Production Deployment:
-- Add proper error handling and logging
-- Implement rate limiting
-- Add monitoring and analytics
-- Configure production OAuth callbacks
-
-### Testing:
-- Add unit tests for backend services
-- Add React component tests
-- Add integration tests for API endpoints
-
 
 ## Development
 - Clone repo
@@ -34,10 +14,9 @@
 - access app at htp://localhost:3000
 
 ## Notes
+### Deploy to EC2 (guide)
 
-### Deploy to EC2
-
- SSH into your EC2 instance
+SSH into your EC2 instance
 ssh -i your-key.pem ec2-user@your-instance-ip
 
  Install Docker and Docker Compose
@@ -59,3 +38,25 @@ nano .env
 
  Run with Docker Compose
 docker-compose -f docker-compose.prod.yml up -d
+
+
+## TODO:
+### Database Integration:
+- Replace JSON file storage with SQLite or PostgreSQL
+- Add proper database migrations
+
+### Enhanced Features:
+- Implement the Whisper speech-to-text placeholder
+- Add spaced repetition algorithm for review sessions
+- Create more sophisticated mistake detection
+
+### Production Deployment:
+- Add proper error handling and logging
+- Implement rate limiting
+- Add monitoring and analytics
+- Configure production OAuth callbacks
+
+### Testing:
+- Add unit tests for backend services
+- Add React component tests
+- Add integration tests for API endpoints
