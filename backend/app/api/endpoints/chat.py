@@ -1,5 +1,7 @@
 # backend/app/api/endpoints/chat.py
 from fastapi import APIRouter, Depends, HTTPException
+import openai
+
 from app.models.schemas import ChatRequest, ChatResponse
 from app.services.openai_service import OpenAIService
 from app.services.mistake_tracker import MistakeTracker
@@ -23,13 +25,18 @@ async def chat(
     history = await user_store.get_conversation_history(user_id, request.session_id)
     
     # Generate AI response
-    ai_response = await openai_service.generate_response(
-        message=request.message,
-        language=request.language,
-        cefr_level=request.cefr_level,
-        conversation_history=history,
-        is_confused=request.is_confused
-    )
+    try:
+        ai_response = await openai_service.generate_response(
+            message=request.message,
+            language=request.language,
+            cefr_level=request.cefr_level,
+            conversation_history=history,
+            is_confused=request.is_confused
+        )
+    except openai.error.RateLimitError as e:
+        raise HTTPException(status_code=429, detail="OpenAI rate limit exceeded.")
+    except openai.error.OpenAIError as e:
+        raise HTTPException(status_code=500, detail=f"OpenAI error: {str(e)}")
     
     # Store messages
     await user_store.add_message(user_id, request.session_id, "user", request.message)
