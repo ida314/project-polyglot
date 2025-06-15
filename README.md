@@ -2,16 +2,17 @@
 
 Polyglot is a full-stack MVP for an AI-powered, conversation-based language tutor. Built with React, FastAPI, and GPT-4o, it helps users practice speaking in a target language, tailored to their CEFR level. Mistakes are tracked silently to generate personalized review sessions — no explicit corrections, mimicking natural acquisition (ALG method).
 
-## Contents:
+## Features
 
-[Development\n](#Development)
-[TODO](#TODO)
-
-## Development
+## Install (Developing)
 - Clone repo
 - Settup enviorment variables
 - run $ docker-compose up --build
 - access app at htp://localhost:3000
+
+## Project layout 
+
+## License
 
 ## Personal Notes
 ### Deploy to EC2 (guide)
@@ -40,7 +41,7 @@ nano .env
 docker-compose -f docker-compose.prod.yml up -d
 
 
-## TODO:
+## Personal TODO:
 ### Database Integration:
 - Replace JSON file storage with SQLite or PostgreSQL
 - Add proper database migrations
@@ -60,3 +61,6 @@ docker-compose -f docker-compose.prod.yml up -d
 - Add unit tests for backend services
 - Add React component tests
 - Add integration tests for API endpoints
+
+
+## Development
