@@ -103,26 +103,11 @@ const LogoIcon = () => (
   </div>
 );
 
-// api
-
-const onSubmit = async () => {
-  const text = input.trim();
-  if (!text) return;
-
-  try {
-    const data = await mutateAsync({ query: text });
-    setAnswer(data.answer);              // local state / context / reducer
-  } catch (_) {
-    toast.error("Something went wrong – try again?");
-  }
-};
-
-
 /* ──────────────────────────────────────────
    Main component
    ────────────────────────────────────────── */
 
-export default function Polyglot() {
+export default function PolyglotApp() {
   return (
     <div className="h-screen flex bg-background dark:bg-neutral-900 text-textMain dark:text-neutral-50">
       {/* Sidebar */}
