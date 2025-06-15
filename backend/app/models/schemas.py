@@ -19,6 +19,7 @@ class Language(str, Enum):
     PORTUGUESE = "Portuguese"
     CHINESE = "Chinese"
     JAPANESE = "Japanese"
+    ENGLISH = "English"
 
 class ChatRequest(BaseModel):
     message: str

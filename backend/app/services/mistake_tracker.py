@@ -3,6 +3,7 @@ import json
 from datetime import datetime
 from typing import List, Dict
 from app.models.schemas import Mistake
+import os
 
 class MistakeTracker:
     def __init__(self):
@@ -24,16 +25,22 @@ class MistakeTracker:
         )
         
         # Store in JSON file (placeholder for database)
-        user_file = f"{self.storage_path}{user_id}.json"
+        
+        BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # Points to /app/app/
+        path = os.path.join(BASE_DIR, 'data', 'mistakes', f"{user_id}.json")
+        
+        # Create parent dirs if missing
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+
         try:
-            with open(user_file, 'r') as f:
+            with open(path, 'r') as f:
                 mistakes = json.load(f)
         except:
             mistakes = []
         
         mistakes.append(mistake.dict())
         
-        with open(user_file, 'w') as f:
+        with open(path, 'w') as f:
             json.dump(mistakes, f)
     
     async def get_user_mistakes(
