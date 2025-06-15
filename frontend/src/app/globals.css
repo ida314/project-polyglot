@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn-icon {
+    @apply flex items-center justify-center rounded-lg h-10 aspect-square transition hover:scale-105 active:scale-95;
+  }
+}
