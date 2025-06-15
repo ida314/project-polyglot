@@ -4,7 +4,7 @@ Polyglot is a full-stack MVP for an AI-powered, conversation-based language tuto
 
 ## Contents:
 
-[Development](#Development)
+[Development\n](#Development)
 [TODO](#TODO)
 
 ## Development
@@ -13,7 +13,7 @@ Polyglot is a full-stack MVP for an AI-powered, conversation-based language tuto
 - run $ docker-compose up --build
 - access app at htp://localhost:3000
 
-## Notes
+## Personal Notes
 ### Deploy to EC2 (guide)
 
 SSH into your EC2 instance
