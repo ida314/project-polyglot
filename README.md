@@ -29,8 +29,10 @@
 
 ## Development
 - Clone repo
-- Settup enviorment variables
-- run $ docker-compose up --build
+- run
+```
+make stack-up
+```
 - access app at htp://localhost:3000
 
 ## Notes
