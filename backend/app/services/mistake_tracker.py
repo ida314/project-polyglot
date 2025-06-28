@@ -7,7 +7,9 @@ import os
 
 class MistakeTracker:
     def __init__(self):
-        self.storage_path = "data/mistakes/"
+        base_dir = os.path.dirname(os.path.dirname(__file__))
+        self.storage_path = os.path.join(base_dir, "data", "mistakes")
+        os.makedirs(self.storage_path, exist_ok=True)
     
     async def log_mistake(
         self,
@@ -25,9 +27,8 @@ class MistakeTracker:
         )
         
         # Store in JSON file (placeholder for database)
-        
-        BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # Points to /app/app/
-        path = os.path.join(BASE_DIR, 'data', 'mistakes', f"{user_id}.json")
+
+        path = os.path.join(self.storage_path, f"{user_id}.json")
         
         # Create parent dirs if missing
         os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -49,7 +50,7 @@ class MistakeTracker:
         limit: int = 10
     ) -> List[Mistake]:
         """Retrieve user's recent mistakes"""
-        user_file = f"{self.storage_path}{user_id}.json"
+        user_file = os.path.join(self.storage_path, f"{user_id}.json")
         try:
             with open(user_file, 'r') as f:
                 mistakes = json.load(f)
