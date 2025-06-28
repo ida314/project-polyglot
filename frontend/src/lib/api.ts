@@ -1,7 +1,11 @@
 import axios from "axios";
 
+// Allow overriding the API base URL via environment variable
+// but default to the local backend when undefined
+const baseURL = import.meta.env.VITE_API_BASE_URL || "/api";
+
 export const api = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL,
+  baseURL,
   withCredentials: true,               // ⇐ sends the refresh cookie
 });
 

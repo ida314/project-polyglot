@@ -7,6 +7,13 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 3000,
+    proxy: {
+      // During development forward API calls to the backend
+      '/api': {
+        target: 'http://localhost:8000',
+        changeOrigin: true,
+      },
+    },
   },
   resolve: {
     alias: {
