@@ -1,6 +1,6 @@
 # project polyglot (langauge tutor)
 
-Check me out: [https://rag-shadow-tutor.streamlit.app/](Link)
+Check me out: [Link](https://rag-shadow-tutor.streamlit.app/)
 
 ## Contents:
 
