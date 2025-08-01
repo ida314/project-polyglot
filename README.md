@@ -1,7 +1,5 @@
 # project polyglot (langauge tutor)
 
-Check me out: [Link](https://rag-shadow-tutor.streamlit.app/)
-
 ## Contents:
 
 [TODO](#TODO)
